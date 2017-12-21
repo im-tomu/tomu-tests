@@ -1,0 +1,48 @@
+# Open drain: 0b1000
+
+if [catch { program bootld_unconditional.ihex } msg ] { shutdown 4 }
+
+reset
+sleep 100
+
+# PA0 - Green
+# PB7 - Red
+
+# GPIO_PA_MODEL original value: 0x7ef8a6e0
+# GPIO_PA_MODEL new value: 0x7ef8a6e8
+# Turn on the green LED
+mww 0x40006004 0x7ef8a6e8
+
+# GPIO_PB_MODEL original value: 0x7ef8a6e0
+# GPIO_PB_MODEL new value: 0x8ef8a6e0
+mww 0x40006028 0x8ef8a6e0
+
+
+mww 0x40006004 0x7ef8a6e8
+sleep 100
+mww 0x40006028 0x8ef8a6e0
+sleep 100
+mww 0x40006028 0x0ef8a6e0
+sleep 100
+mww 0x40006004 0x7ef8a6e0
+sleep 100
+
+mww 0x40006004 0x7ef8a6e8
+sleep 100
+mww 0x40006028 0x8ef8a6e0
+sleep 100
+mww 0x40006028 0x0ef8a6e0
+sleep 100
+mww 0x40006004 0x7ef8a6e0
+sleep 100
+
+mww 0x40006004 0x7ef8a6e8
+sleep 100
+mww 0x40006028 0x8ef8a6e0
+sleep 100
+mww 0x40006028 0x0ef8a6e0
+sleep 100
+mww 0x40006004 0x7ef8a6e0
+sleep 100
+
+shutdown

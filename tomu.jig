@@ -1,0 +1,6 @@
+[Jig]
+Name=Tomu Jig
+Description=Tomu 0.3 factory test jig
+TestFile=/boot/tomu-jig
+DefaultWorkingDirectory=/root/Code/tomu-tests/bin
+DefaultScenario=full-sequence
