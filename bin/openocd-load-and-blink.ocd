@@ -39,10 +39,10 @@ sleep 100
 mww 0x40006004 0x7ef8a6e8
 sleep 100
 mww 0x40006028 0x8ef8a6e0
-sleep 100
-mww 0x40006028 0x0ef8a6e0
-sleep 100
-mww 0x40006004 0x7ef8a6e0
-sleep 100
+#sleep 100
+#mww 0x40006028 0x0ef8a6e0
+#sleep 100
+#mww 0x40006004 0x7ef8a6e0
+#sleep 100
 
 shutdown
