@@ -1,18 +1,18 @@
 #!/bin/sh
 
-green_led=11
-yellow_led=9
-red_led=10
+blue_led=17
+yellow_led=27
+red_led=22
 
 all_off() {
-	gpio -g write ${green_led} 0
+	gpio -g write ${blue_led} 0
 	gpio -g write ${yellow_led} 0
 	gpio -g write ${red_led} 0
 }
 
-green_on() {
+blue_on() {
 	all_off
-	gpio -g write ${green_led} 1
+	gpio -g write ${blue_led} 1
 }
 
 yellow_on() {
@@ -30,16 +30,16 @@ red_also_on() {
 }
 
 gpio_setup() {
-	gpio -g mode ${green_led} out
+	gpio -g mode ${blue_led} out
 	gpio -g mode ${yellow_led} out
 	gpio -g mode ${red_led} out
-	green_on
+	blue_on
 }
 
 gpio_setup
 
 echo "HELLO bash-ltc-jig 1.0"
-green_on
+blue_on
 sleep .5
 yellow_on
 sleep .5
@@ -47,7 +47,7 @@ red_on
 sleep .5
 yellow_on
 sleep .5
-green_on
+blue_on
 
 while read line
 do
@@ -62,7 +62,7 @@ do
 		result=$(echo ${line} | awk '{print $3}')
 		if [ ${result} -ge 200 -a ${result} -lt 300 ]
 		then
-			green_on
+			blue_on
 		else
 			red_on
 		fi
