@@ -1,8 +1,8 @@
 #!/bin/sh
 
-blue_led=17
+blue_led=22
 yellow_led=27
-red_led=22
+red_led=17
 
 all_off() {
 	gpio -g write ${blue_led} 0
