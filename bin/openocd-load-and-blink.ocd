@@ -1,8 +1,12 @@
 # Open drain: 0b1000
 
-if [catch { program bootld_unconditional.ihex } msg ] { shutdown 4 }
+if [ catch { program toboot.ihex } msg ] { shutdown 4 }
 
-reset
+sleep 100
+reset halt
+
+# Enable GPIO clock in CMU_HFPERCLKEN0 so GPIO calls work
+mww 0x400c8044 0x100
 sleep 100
 
 # PA0 - Green
