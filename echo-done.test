@@ -1,7 +1,0 @@
-[Test]
-ExecStart=/bin/echo "Test finishing"
-Name=Simply echo something out (working aorund a bug in test software)
-WorkingDirectory=/root/Code/tomu-tests/bin
-Description=Run the entire test via OpenOCD
-Timeout=4
-Type=simple

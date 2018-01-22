@@ -2,4 +2,4 @@
 Name=Front panel LEDs
 Description=Shows test status on the LEDs
 Format=text
-ExecStart=/root/Code/tomu-tests/bin/led-interface.sh
+ExecStart=led-interface.sh

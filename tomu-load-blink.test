@@ -1,7 +1,6 @@
 [Test]
 ExecStart=/usr/local/bin/openocd -f interface/raspberrypi2-native.cfg -c "transport select swd" -c 'set CHIPNAME efm32hg309' -f target/efm32.cfg -c 'reset_config none' -c 'init' -c 'reset' -f openocd-load-and-blink.ocd
 Name=Run the entire test
-WorkingDirectory=/root/Code/tomu-tests/bin
 Description=Run the entire test via OpenOCD
 Timeout=4
 Type=simple

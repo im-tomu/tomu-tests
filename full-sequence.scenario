@@ -1,5 +1,6 @@
 [Scenario]
 Name=Program Everything
 Description=Program the test OS, run the tests, then program the final OS
-Tests=echo,tomu-load-blink,echo-done
+Tests=tomu-load-blink
+WorkingDirectory=bin
 Timeout=5
