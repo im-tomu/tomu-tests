@@ -120,4 +120,20 @@ struct toboot_runtime {
         .reserved_hash  = 0,                                             \
 }
 
+/// Use this macro to define a Toboot V2 configuration at a specific offset.
+/// This allows you to place your program at any 1024-byte-aligned offset.
+/// Make sure you update your linker script to match this value!
+#define TOBOOT_CONFIGURATION_AT_OFFSET(cfg, offset)                         \
+    __attribute__ ((used, section(".vectors")))                          \
+    const struct toboot_configuration __toboot_configuration = {         \
+        .magic          = TOBOOT_V2_MAGIC,                               \
+        .reserved_gen   = 0,                                             \
+        .start          = offset/1024,                                   \
+        .config         = cfg,                                           \
+        .lock_entry     = 0,                                             \
+        .erase_mask_lo  = 0,                                             \
+        .erase_mask_hi  = 0,                                             \
+        .reserved_hash  = 0,                                             \
+}
+
 #endif /* TOBOOT_API_H_ */
