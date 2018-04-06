@@ -3,6 +3,7 @@
 #include <libopencm3/efm32/gpio.h>
 #include <libopencm3/efm32/wdog.h>
 
+#include "toboot.h"
 #include "usb-cdcacm.h"
 
 #define LED_GREEN_PORT GPIOA
@@ -10,7 +11,13 @@
 #define LED_RED_PORT   GPIOB
 #define LED_RED_PIN    GPIO7
 
-static void rx_callback(const void *buf, uint16_t len) {
+// Place this program at offset 0x2000.
+// Don't autorun this program at startup, because it is loaded once at the
+// factory, and is then never again used.
+TOBOOT_CONFIGURATION_AT_OFFSET(TOBOOT_CONFIG_FLAG_AUTORUN_DISABLED, 0x2000);
+
+static void rx_callback(const void *buf, uint16_t len)
+{
     (void)len;
     usb_cdcacm_puts(buf);
 }
