@@ -1,0 +1,8 @@
+[Test]
+ExecStart=dfu-util -D tomu-runner.bin
+Name=Program Test Runner
+Description=Load Test Runner via DFU
+Requires=tomu-wait-for-dfu
+Timeout=5
+Requires=tomu-load-toboot
+Type=simple
