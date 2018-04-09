@@ -1,0 +1,6 @@
+[Test]
+ExecStart=/bin/sh -c 'until dfu-util -l | grep -q "Tomu Bootloader"; do true; done'
+Name=Wait for banner
+Description=Load Toboot via OpenOCD
+Timeout=3
+Type=simple
