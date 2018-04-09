@@ -232,9 +232,6 @@ static void cdcacm_data_rx_cb(usbd_device *usbd_dev, uint8_t ep)
 {
 	(void)ep;
 
-    /* We got some data, toggle the green LED */
-    gpio_toggle(LED_GREEN_PORT, LED_GREEN_PIN);
-
 	char buf[64];
 	int len = usbd_ep_read_packet(usbd_dev, 0x01, buf, 64);
 
