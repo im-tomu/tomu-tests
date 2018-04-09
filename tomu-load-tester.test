@@ -1,5 +1,5 @@
 [Test]
-ExecStart=dfu-util -D tomu-runner.bin
+ExecStart=dfu-util -D tomu-runner.dfu
 Name=Program Test Runner
 Description=Load Test Runner via DFU
 Requires=tomu-wait-for-dfu
