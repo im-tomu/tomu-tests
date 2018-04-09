@@ -1,0 +1,6 @@
+[Test]
+ExecStart=/bin/sh -c 'while [ ! -e /dev/ttyACM0 ]; do sleep 1; done; grep -q test-in-progress /dev/ttyACM0'
+Name=Wait for banner
+Description=Load Toboot via OpenOCD
+Timeout=3
+Type=simple
