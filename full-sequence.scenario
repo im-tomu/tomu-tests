@@ -1,6 +1,7 @@
 [Scenario]
 Name=Program Everything
 Description=Program the test OS, run the tests, then program the final OS
-Tests=tomu-load-blink
+Tests=tomu-load-toboot,tomu-wait-for-dfu,tomu-load-tester,tomu-wait-for-banner
+#Tests=tomu-load-blink
 WorkingDirectory=bin
-Timeout=5
+Timeout=7
