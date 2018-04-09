@@ -1,5 +1,5 @@
 [Test]
-ExecStart=/usr/local/bin/openocd -f interface/raspberrypi2-native.cfg -c "transport select swd" -c 'set CHIPNAME efm32hg309' -f target/efm32.cfg -c 'reset_config none' -c 'init' -c 'reset' -f openocd-load-and-blink.ocd
+ExecStart=/usr/local/bin/openocd -f interface/raspberrypi2-native.cfg -c 'transport select swd' -c 'bcm2835gpio_swd_nums 25 24' -c 'set CHIPNAME efm32hg309' -f target/efm32.cfg -c 'adapter_khz 100' -c 'reset_config none' -c 'init' -c 'reset' -f openocd-load-and-blink.ocd
 Name=Run the entire test
 Description=Run the entire test via OpenOCD
 Timeout=4
