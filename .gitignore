@@ -5,6 +5,5 @@
 # Files generated when building the runner
 *.bin
 *.d
-*.elf
 *.map
 *.o
