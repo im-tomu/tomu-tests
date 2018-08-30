@@ -1,5 +1,5 @@
 [Test]
-ExecStart=/usr/local/bin/openocd -f interface/raspberrypi2-native.cfg -c 'transport select swd' -c 'bcm2835gpio_swd_nums 25 24' -c 'set CHIPNAME efm32hg309' -f target/efm32.cfg -c 'reset_config none' -c 'adapter_khz 100' -c 'init' -c 'reset' -c 'program toboot.ihex' -c 'reset run' -c 'shutdown 0'
+ExecStart=/usr/local/bin/openocd -f interface/raspberrypi2-native.cfg -c 'transport select swd' -c 'bcm2835gpio_swd_nums 25 24' -c 'set CHIPNAME efm32hg309' -f target/efm32.cfg -c 'reset_config none' -c 'adapter_khz 100' -c 'init' -c 'reset' -c 'program toboot.ihex' -c 'mww 0x20000000 0x74624346' -c 'reset run' -c 'shutdown 0'
 Name=Program Toboot
 WorkingDirectory=bin
 Description=Load Toboot via OpenOCD
